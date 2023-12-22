@@ -8,9 +8,10 @@ function App() {
     <div>
     <Header />
     {
-      jsonData.map((element)=>{
+      jsonData.map((element,index)=>{
         return(
           <Movie
+            key={index}
             name={element.Title}
             img={element.Poster}
           />
