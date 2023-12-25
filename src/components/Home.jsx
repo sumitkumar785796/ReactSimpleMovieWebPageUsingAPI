@@ -1,18 +1,33 @@
 import React from 'react'
-import Head from './Head'
+import jsonData from './api.json'
 import Fun from './Fun'
-
+import Head from './Head'
+import Foot from './Foot'
 const Home = () => {
   return (
     <>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-             <Fun />
-            </div>
+    <hr />
+    <hr />
+    <Head />
+    <hr />
+    <hr />
+      <div className="container">
+          <div className="row">
+            {
+              jsonData.map((element,index)=>{
+                return(
+                  <Fun
+                    key={index}
+                    name={element.Title}
+                    img={element.Poster}
+                    writer={element.Writer}
+                  />
+                )
+              })
+            }
         </div>
-    </div>
-    
+      </div>
+      <Foot />
     </>
   )
 }
